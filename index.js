@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import * as dotenv from "dotenv";
 import path from "path";
+import OpenAI from "openai";
 
 const app = express();
 
@@ -36,17 +37,17 @@ app.get("/test", async (req, res) => {
   }
 });
 
-app.post("/message", async (req, rss) => {
-  const message = req.body.message;
-  console.log("message: ", message);
-  try {
-    res.json({
-      id: Date.now(),
-    });
-  } catch (error) {
-    console.log(error);
-  }
-});
+// app.post("/message", async (req, rss) => {
+//   const message = req.body.message;
+//   console.log("message: ", message);
+//   try {
+//     res.json({
+//       id: Date.now(),
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// });
 
 // 챗봇 api설정
 const initialMessage = (ingredientList) => {
